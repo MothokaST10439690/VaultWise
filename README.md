@@ -3,6 +3,8 @@
 VaultWise is a personal budgeting Android application that helps users track expenses, manage monthly spending goals, view spending analytics, and earn rewards for positive money habits. The app stores user data locally using Room Database and follows an MVVM structure.
 
 ## Final POE Required Features
+## Github Link:
+## OneDrive video link:
 
 ### 1. Expense Data Capture and Expense Views
 
