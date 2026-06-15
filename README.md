@@ -81,6 +81,16 @@ Where to test it:
 3. Open **Analytics**.
 4. Check that the bills total appears and is included in the monthly budget progress.
 
+
+### Own Feature 3: user can add profile
+User can simply add a **Profile picture**
+Where to test it:
+
+1.Open **Setting** 
+2.Click Profile 
+3.ADD a picture
+
+
 ## Extra Features
 
 - User registration and login
@@ -128,21 +138,3 @@ com.example.vaultwise/
 2. Sync Gradle.
 3. Run unit tests with `./gradlew test`.
 4. Run the app on a real Android phone for final POE demonstration.
-
-## Suggested Demonstration Video Flow
-
-1. Open the app on a real mobile phone.
-2. Register or log in.
-3. Set minimum and maximum monthly goals in Settings.
-4. Add a committed monthly bill.
-5. Log an expense with category, payment method, date, time, and receipt photo.
-6. Open History and show the saved expense.
-7. Open Analytics and show the past-month progress card.
-8. Select a graph period and show the category graph updating.
-9. Show the minimum and maximum goals displayed with the graph.
-10. Open Rewards & Money Match and show earned/locked badges.
-11. Play one round of Money Match.
-
-## Notes
-
-This project is designed for the final POE requirements. The strongest screens to demonstrate are Log Expense, Analytics, Settings, History, and Rewards & Money Match.
