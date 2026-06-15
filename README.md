@@ -106,7 +106,6 @@ Where to test it:
 
 * User registration and login
 * Local session handling
-* Profile photo selection
 * Dark mode toggle
 * English and Afrikaans language option
 * Cash and digital spending totals
