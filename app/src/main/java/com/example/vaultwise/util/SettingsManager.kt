@@ -12,7 +12,7 @@ class SettingsManager(private val context: Context) {
         private const val PREF_NAME = "VaultWiseSettings"
         private const val KEY_DARK_MODE = "dark_mode"
         private const val KEY_LANGUAGE = "language"
-        private const val KEY_PROFILE_PHOTO_URI = "profile_photo_uri"
+        private const val KEY_PROFILE_PHOTO_URI_PREFIX = "profile_photo_uri_user_"
     }
 
     fun setDarkMode(enabled: Boolean) {
@@ -45,12 +45,16 @@ class SettingsManager(private val context: Context) {
         applyLanguage(getLanguage())
     }
 
-    fun setProfilePhotoUri(uri: String) {
-        prefs.edit().putString(KEY_PROFILE_PHOTO_URI, uri).apply()
+    fun setProfilePhotoUri(userId: Int, uri: String) {
+        prefs.edit().putString(profilePhotoKey(userId), uri).apply()
     }
 
-    fun getProfilePhotoUri(): String? {
-        return prefs.getString(KEY_PROFILE_PHOTO_URI, null)
+    fun getProfilePhotoUri(userId: Int): String? {
+        return prefs.getString(profilePhotoKey(userId), null)
+    }
+
+    private fun profilePhotoKey(userId: Int): String {
+        return "$KEY_PROFILE_PHOTO_URI_PREFIX$userId"
     }
 
     private fun applyLanguage(langCode: String) {

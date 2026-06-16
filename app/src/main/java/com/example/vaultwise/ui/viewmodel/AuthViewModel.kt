@@ -52,6 +52,10 @@ class AuthViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun getLoggedInUserId(): Int {
+        return sessionManager.getUserId()
+    }
+
     fun logout() {
         sessionManager.clearSession()
         _authState.value = AuthState.LoggedOut

@@ -42,7 +42,8 @@ class SettingsFragment : Fragment() {
                 uri,
                 Intent.FLAG_GRANT_READ_URI_PERMISSION
             )
-            settingsManager.setProfilePhotoUri(uri.toString())
+            val currentUserId = authViewModel.getLoggedInUserId()
+            settingsManager.setProfilePhotoUri(currentUserId, uri.toString())
             currentBinding.ivProfilePhoto.setImageURI(uri)
             Toast.makeText(requireContext(), getString(R.string.message_profile_photo_updated), Toast.LENGTH_SHORT).show()
         }
@@ -77,18 +78,13 @@ class SettingsFragment : Fragment() {
 
     private fun setupProfile() {
         val username = authViewModel.getLoggedInUsername() ?: "User"
+        val currentUserId = authViewModel.getLoggedInUserId()
+
         binding.tvProfileName.text = username
+        binding.ivProfilePhoto.setImageResource(R.drawable.ic_launcher_foreground)
 
-        settingsManager.getProfilePhotoUri()?.let { savedUri ->
+        settingsManager.getProfilePhotoUri(currentUserId)?.let { savedUri ->
             binding.ivProfilePhoto.setImageURI(Uri.parse(savedUri))
-        }
-
-        binding.ivProfilePhoto.setOnClickListener {
-            profilePhotoPicker.launch(arrayOf("image/*"))
-        }
-
-        binding.tvChangePhoto.setOnClickListener {
-            profilePhotoPicker.launch(arrayOf("image/*"))
         }
     }
 
