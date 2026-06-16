@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="app_background">#F8FAFC</color>
+    <color name="card_background">#FFFFFFFF</color>
+    <color name="input_surface">#F8FAFC</color>
+    <color name="navy_background">#0D1B2A</color>
+    <color name="navy_secondary">#1B263B</color>
+    <color name="button_green">#2D6A4F</color>
+    <color name="button_green_pressed">#24543F</color>
+    <color name="danger">#DC2626</color>
+    <color name="danger_surface">#FEF2F2</color>
+    <color name="warning">#D97706</color>
+    <color name="text_hint">#94A3B8</color>
+    <color name="input_background">#1B263B</color>
+    <color name="text_primary">#0D1B2A</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="border_color">#E2E8F0</color>
+    <color name="track_surface">#E2E8F0</color>
+    <color name="chip_selected_bg">#ECFDF5</color>
+    <color name="chip_selected_stroke">#10B981</color>
+
+    <!-- Category Colors -->
+    <color name="cat_food">#F59E0B</color>
+    <color name="cat_rent">#3B82F6</color>
+    <color name="cat_shopping">#EC4899</color>
+    <color name="cat_transport">#8B5CF6</color>
+    <color name="cat_other">#94A3B8</color>
+</resources>

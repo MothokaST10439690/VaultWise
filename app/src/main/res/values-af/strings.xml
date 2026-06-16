@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VaultWise</string>
+    <string name="welcome_back">Welkom terug!</string>
+    <string name="username_label">GEBRUIKERSNAAM</string>
+    <string name="password_label">WAGWOORD</string>
+    <string name="hint_username">Voer jou gebruikersnaam in</string>
+    <string name="hint_password">Voer jou wagwoord in</string>
+    <string name="login_button">Meld aan</string>
+    <string name="signup_button">Registreer</string>
+    <string name="create_account_title">Skep Rekening</string>
+    <string name="confirm_password_label">BEVESTIG WAGWOORD</string>
+    <string name="hint_confirm_password">Voer wagwoord weer in</string>
+    <string name="login_link">Het jy reeds \'n rekening? Meld aan</string>
+    <string name="signup_link">Het jy nie \'n rekening nie? Registreer</string>
+    <string name="footer_security_msg">Alle data word plaaslik op jou toestel gestoor</string>
+    <string name="log_expense_title">Teken Uitgawe Aan</string>
+    <string name="log_expense_subtitle">Vang uitgawes vinnig en duidelik vas</string>
+    <string name="nav_log_expense">Teken aan</string>
+    <string name="nav_history">Geskiedenis</string>
+    <string name="nav_game">Speletjie</string>
+    <string name="nav_analytics">Analise</string>
+    <string name="nav_settings">Instellings</string>
+    <string name="history_title">Uitgawegeskiedenis</string>
+    <string name="history_subtitle">Hersien en filtreer jou transaksies</string>
+    <string name="analytics_title">Analise</string>
+    <string name="analytics_subtitle">Verstaan jou bestedingspatrone</string>
+    <string name="settings_title">Instellings</string>
+    <string name="settings_profile_subtitle">Profiel en voorkeure</string>
+    <string name="label_language">Taal</string>
+    <string name="lang_english">Engels</string>
+    <string name="lang_afrikaans">Afrikaans</string>
+    <string name="label_dark_mode">Donker Modus</string>
+    <string name="btn_logout">Meld af</string>
+    <string name="money_match_title">Geld Pasmaat</string>
+    <string name="money_match_subtitle">Pas slim geldgewoontes voor die app jou lyn blokkeer.</string>
+    <string name="money_match_turn">Jou beurt: kies \'n geldgewoonte.</string>
+    <string name="money_match_reset">Nuwe Rondte</string>
+</resources>

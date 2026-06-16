@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tv_game_title"
+            style="@style/VaultWise.PageTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/rewards_game_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_game_subtitle"
+            style="@style/VaultWise.PageSubtitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/rewards_game_subtitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_game_title" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_rewards"
+            style="@style/VaultWise.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_game_subtitle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tv_rewards_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rewards_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_reward_summary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/reward_summary_default"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/rewards_explanation"
+                    android:textColor="@color/text_hint"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:id="@+id/badge_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_match"
+            style="@style/VaultWise.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/card_rewards">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/money_match_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_match_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/money_match_turn"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <GridLayout
+                    android:id="@+id/grid_match"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:columnCount="3"
+                    android:rowCount="3">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_0"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Save"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_1"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Track"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_2"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Plan"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_3"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Pause"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_4"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Budget"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_5"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Review"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_6"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Limit"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_7"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Compare"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cell_8"
+                        style="@style/VaultWise.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="64dp"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="4dp"
+                        android:text="Avoid"
+                        android:textAllCaps="false" />
+                </GridLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_new_round"
+                    style="@style/VaultWise.PrimaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/money_match_reset" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="@color/chip_selected_bg"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/chip_selected_stroke"
+            app:strokeWidth="1dp"
+            app:layout_constraintTop_toBottomOf="@id/card_match">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/money_match_tip_title"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/money_match_tip"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

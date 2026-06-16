@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.VaultWise" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/button_green</item>
+        <item name="colorSecondary">@color/chip_selected_stroke</item>
+        <item name="android:colorAccent">@color/button_green</item>
+        <item name="android:windowBackground">@color/app_background</item>
+    </style>
+</resources>

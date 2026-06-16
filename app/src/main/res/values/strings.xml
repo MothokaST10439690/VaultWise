@@ -1,0 +1,156 @@
+<resources>
+    <string name="app_name">VaultWise</string>
+    <string name="welcome_back">Welcome back!</string>
+    <string name="username_label">USERNAME</string>
+    <string name="password_label">PASSWORD</string>
+    <string name="hint_username">Enter your username</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="login_button">Login</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="create_account_title">Create Account</string>
+    <string name="confirm_password_label">CONFIRM PASSWORD</string>
+    <string name="hint_confirm_password">Re-enter password</string>
+    <string name="login_link">Already have an account? Login</string>
+    <string name="fingerprint_login">Quick Fingerprint Login</string>
+    <string name="signup_link">Don\'t have an account? Sign Up</string>
+    <string name="footer_security_msg">All data stored locally on your device</string>
+    <string name="logo_content_description">VaultWise Logo</string>
+
+    <!-- Log Expense -->
+    <string name="log_expense_title">Log Expense</string>
+    <string name="log_expense_subtitle">Capture spending quickly and clearly</string>
+    <string name="label_amount">AMOUNT</string>
+    <string name="hint_amount">R 0.00</string>
+    <string name="label_payment_method">PAYMENT METHOD</string>
+    <string name="payment_digital">Digital / Card</string>
+    <string name="payment_cash">Cash</string>
+    <string name="label_description">DESCRIPTION</string>
+    <string name="hint_description">What did you spend on?</string>
+    <string name="label_date">DATE</string>
+    <string name="default_date">2026/03/24</string>
+    <string name="label_category">CATEGORY</string>
+    <string name="btn_attach_receipt">Attach receipt photo</string>
+    <string name="btn_save_expense">Save Expense</string>
+    <string name="label_start_time">Start Time</string>
+    <string name="label_end_time">End Time</string>
+    <string name="label_photo_optional">Receipt Photo (Optional)</string>
+    <string name="hint_time">00:00</string>
+    <string name="hint_take_photo">Tap to take photo</string>
+    <string name="cat_custom">+ Custom</string>
+    <string name="dialog_select_date">Select Date</string>
+    <string name="dialog_select_time">Select Time</string>
+    <string name="dialog_add_category_title">Add Custom Category</string>
+    <string name="hint_category_name">Category name</string>
+    <string name="action_add">Add</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="error_user_not_logged_in">User not logged in</string>
+    <string name="error_expense_required_fields">Please enter an amount and description.</string>
+    <string name="error_end_time_before_start">End time cannot be before start time.</string>
+    <string name="message_expense_saved">Expense saved</string>
+
+    <!-- Categories -->
+    <string name="cat_food">Food</string>
+    <string name="cat_coffee">Coffee</string>
+    <string name="cat_transport">Transport</string>
+    <string name="cat_rent">Rent</string>
+    <string name="cat_shopping">Shopping</string>
+    <string name="cat_entertainment">Entertainment</string>
+    <string name="cat_health">Health</string>
+    <string name="cat_subscriptions">Subscriptions</string>
+    <string name="cat_other">Other</string>
+
+    <!-- Navigation -->
+    <string name="nav_log_expense">Log</string>
+    <string name="nav_history">History</string>
+    <string name="nav_game">Game</string>
+    <string name="nav_analytics">Analytics</string>
+    <string name="nav_settings">Settings</string>
+
+    <!-- Analytics Fragment -->
+    <string name="analytics_title">Analytics</string>
+    <string name="analytics_subtitle">Understand your spending patterns</string>
+    <string name="daily_spending_title">Daily Spending (7 days)</string>
+    <string name="digital_total_label">DIGITAL TOTAL</string>
+    <string name="cash_total_label">CASH TOTAL</string>
+    <string name="by_category_title">By Category</string>
+    <string name="remaining_budget_title">Remaining Budget</string>
+    <string name="budget_spent_default">Spent R 0.00 of R 0.00</string>
+    <string name="budget_goal_range_default">Goal range: R 0.00 - R 0.00</string>
+    <string name="budget_status_not_set">Set your monthly budget in Settings to unlock budget insights.</string>
+    <string name="budget_status_below_min">Below your planned monthly range.</string>
+    <string name="budget_status_within_range">Within your monthly spending range.</string>
+    <string name="budget_status_over_max">Over your maximum monthly budget.</string>
+    <string name="monthly_bills_title">Monthly Bills (Committed)</string>
+    <string name="monthly_bills_subtitle">Automatically deducted from your monthly budget</string>
+    <string name="empty_data">No data available yet</string>
+
+
+    <string name="past_month_progress_title">Past Month Budget Progress</string>
+    <string name="category_period_title">Category Spending Graph</string>
+    <string name="selected_period_default">Selected graph period: This month</string>
+    <string name="btn_select_graph_period">Select Graph Period</string>
+    <string name="dialog_select_analytics_period">Select Graph Period</string>
+    <string name="selected_period_total_default">Selected period spending: R 0.00</string>
+    <string name="selected_period_goal_default">Graph goals: Min R 0.00 • Max R 0.00</string>
+    <string name="period_status_below_min">Selected period is below the minimum goal.</string>
+    <string name="period_status_within_range">Selected period is within the min and max goals.</string>
+    <string name="period_status_over_max">Selected period is over the maximum goal.</string>
+
+    <!-- History Fragment -->
+    <string name="history_title">Expense History</string>
+    <string name="history_subtitle">Review and filter your transactions</string>
+    <string name="btn_filter_date">Filter</string>
+    <string name="history_empty_title">No expenses yet</string>
+    <string name="history_empty_message">Saved expenses will appear here after you log them.</string>
+    <string name="history_item_details_format">%1$s - %2$s - %3$s</string>
+    <string name="not_available">N/A</string>
+    <string name="dialog_select_date_range">Select Date Range</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_profile_subtitle">Profile and preferences</string>
+    <string name="user_name_placeholder">jake boone</string>
+    <string name="user_privacy_msg">Privacy First</string>
+    <string name="label_language">Language</string>
+    <string name="lang_english">English</string>
+    <string name="lang_afrikaans">Afrikaans</string>
+    <string name="change_profile_photo">Change photo</string>
+    <string name="label_dark_mode">Dark Mode</string>
+    <string name="label_monthly_budget">Monthly Budget</string>
+    <string name="label_monthly_goals">Monthly Savings &amp; Spending Goals</string>
+    <string name="hint_min_goal">Min Goal</string>
+    <string name="hint_max_goal">Max Goal</string>
+    <string name="btn_save_goals">Save Goals</string>
+    <string name="btn_save">Save</string>
+    <string name="label_committed_expenses">Committed Expenses (Bills)</string>
+    <string name="btn_add_bill">Add Bill</string>
+    <string name="hint_bill_name">Bill name</string>
+    <string name="hint_bill_amount">R 0</string>
+    <string name="message_language_updated">Language updated</string>
+    <string name="message_profile_photo_updated">Profile photo updated</string>
+    <string name="message_goals_updated">Goals updated</string>
+    <string name="error_max_goal_required">Please enter a maximum monthly budget greater than zero.</string>
+    <string name="error_min_goal_greater_than_max">Minimum goal cannot be greater than maximum goal.</string>
+    <string name="error_bill_required">Please enter a bill name and amount.</string>
+    <string name="btn_logout">Logout</string>
+
+
+    <!-- Rewards and Gamification -->
+    <string name="rewards_game_title">Rewards &amp; Money Match</string>
+    <string name="rewards_game_subtitle">Earn badges from real budget habits, then practise smart money moves.</string>
+    <string name="rewards_title">Budget Rewards</string>
+    <string name="reward_summary_default">0 of 7 badges earned</string>
+    <string name="reward_summary_format">%1$d of %2$d badges earned</string>
+    <string name="rewards_explanation">Badges unlock when you meet goals, log expenses consistently, attach receipts, and track different categories.</string>
+
+    <!-- Money Match Game -->
+    <string name="money_match_title">Money Match</string>
+    <string name="money_match_subtitle">Match smart money moves before the app blocks your line.</string>
+    <string name="money_match_turn">Your turn: choose a money move.</string>
+    <string name="money_match_win">You won the round. Keep those habits going.</string>
+    <string name="money_match_loss">The app won this round. Try another money move.</string>
+    <string name="money_match_draw">It is a draw. Your money habits are still improving.</string>
+    <string name="money_match_reset">New Round</string>
+    <string name="money_match_tip_title">How to play</string>
+    <string name="money_match_tip">Tap a square to place X. Each square represents a useful money habit. Get three X marks in a row to win.</string>
+</resources>
