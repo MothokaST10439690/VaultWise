@@ -31,23 +31,49 @@ class SettingsFragment : Fragment() {
 
     private var _binding: FragmentSettingsBinding? = null
     private val binding get() = _binding!!
+
     private val authViewModel: AuthViewModel by viewModels()
     private val budgetViewModel: BudgetViewModel by viewModels()
     private val committedViewModel: CommittedExpenseViewModel by viewModels()
+
     private lateinit var settingsManager: SettingsManager
-    private val profilePhotoPicker = registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
-        if (uri != null) {
-            val currentBinding = _binding ?: return@registerForActivityResult
-            requireContext().contentResolver.takePersistableUriPermission(
-                uri,
-                Intent.FLAG_GRANT_READ_URI_PERMISSION
-            )
-            val currentUserId = authViewModel.getLoggedInUserId()
-            settingsManager.setProfilePhotoUri(currentUserId, uri.toString())
-            currentBinding.ivProfilePhoto.setImageURI(uri)
-            Toast.makeText(requireContext(), getString(R.string.message_profile_photo_updated), Toast.LENGTH_SHORT).show()
+
+    private val profilePhotoPicker =
+        registerForActivityResult(ActivityResultContracts.OpenDocument()) { uri ->
+            if (uri != null) {
+                val currentBinding = _binding ?: return@registerForActivityResult
+                val currentUserId = authViewModel.getLoggedInUserId()
+
+                if (currentUserId <= 0) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Could not find logged-in user.",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@registerForActivityResult
+                }
+
+                try {
+                    requireContext().contentResolver.takePersistableUriPermission(
+                        uri,
+                        Intent.FLAG_GRANT_READ_URI_PERMISSION
+                    )
+                } catch (e: SecurityException) {
+                    e.printStackTrace()
+                }
+
+                settingsManager.setProfilePhotoUri(currentUserId, uri.toString())
+
+                currentBinding.ivProfilePhoto.setImageURI(null)
+                currentBinding.ivProfilePhoto.setImageURI(uri)
+
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.message_profile_photo_updated),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -81,11 +107,31 @@ class SettingsFragment : Fragment() {
         val currentUserId = authViewModel.getLoggedInUserId()
 
         binding.tvProfileName.text = username
-        binding.ivProfilePhoto.setImageResource(R.drawable.ic_launcher_foreground)
 
-        settingsManager.getProfilePhotoUri(currentUserId)?.let { savedUri ->
-            binding.ivProfilePhoto.setImageURI(Uri.parse(savedUri))
+        // Default image when the user has not selected a profile picture
+        binding.ivProfilePhoto.setImageResource(android.R.drawable.ic_menu_myplaces)
+
+        if (currentUserId > 0) {
+            settingsManager.getProfilePhotoUri(currentUserId)?.let { savedUri ->
+                binding.ivProfilePhoto.setImageURI(Uri.parse(savedUri))
+            }
         }
+
+        binding.ivProfilePhoto.setOnClickListener {
+            openProfilePhotoPicker()
+        }
+
+        binding.tvChangePhoto.setOnClickListener {
+            openProfilePhotoPicker()
+        }
+
+        binding.cardProfile.setOnClickListener {
+            openProfilePhotoPicker()
+        }
+    }
+
+    private fun openProfilePhotoPicker() {
+        profilePhotoPicker.launch(arrayOf("image/*"))
     }
 
     private fun setupBudget() {
@@ -105,17 +151,29 @@ class SettingsFragment : Fragment() {
             val max = maxStr.toDoubleOrNull() ?: 0.0
 
             if (max <= 0.0) {
-                Toast.makeText(requireContext(), getString(R.string.error_max_goal_required), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.error_max_goal_required),
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
             if (min > max) {
-                Toast.makeText(requireContext(), getString(R.string.error_min_goal_greater_than_max), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.error_min_goal_greater_than_max),
+                    Toast.LENGTH_SHORT
+                ).show()
                 return@setOnClickListener
             }
 
             budgetViewModel.updateGoals(min, max)
-            Toast.makeText(requireContext(), getString(R.string.message_goals_updated), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.message_goals_updated),
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
@@ -128,6 +186,7 @@ class SettingsFragment : Fragment() {
 
     private fun setupLanguage() {
         val currentLang = settingsManager.getLanguage()
+
         when (currentLang) {
             "en" -> binding.btnLangEn.isChecked = true
             "af" -> binding.btnLangAf.isChecked = true
@@ -140,9 +199,14 @@ class SettingsFragment : Fragment() {
                     R.id.btn_lang_af -> "af"
                     else -> "en"
                 }
+
                 if (langCode != settingsManager.getLanguage()) {
                     settingsManager.setLanguage(langCode)
-                    Toast.makeText(requireContext(), getString(R.string.message_language_updated), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        getString(R.string.message_language_updated),
+                        Toast.LENGTH_SHORT
+                    ).show()
                     requireActivity().recreate()
                 }
             }
@@ -166,13 +230,18 @@ class SettingsFragment : Fragment() {
                 binding.etBillName.text?.clear()
                 binding.etBillAmount.text?.clear()
             } else {
-                Toast.makeText(requireContext(), getString(R.string.error_bill_required), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.error_bill_required),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
 
     private fun updateCommittedExpensesUI(expenses: List<CommittedExpense>) {
         binding.containerCommittedExpenses.removeAllViews()
+
         expenses.forEach { expense ->
             val row = LinearLayout(requireContext()).apply {
                 layoutParams = LinearLayout.LayoutParams(
@@ -185,7 +254,11 @@ class SettingsFragment : Fragment() {
             }
 
             val tvName = TextView(requireContext()).apply {
-                layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+                layoutParams = LinearLayout.LayoutParams(
+                    0,
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    1f
+                )
                 text = expense.name
                 setTextColor(resources.getColor(R.color.text_primary, null))
             }
@@ -211,7 +284,7 @@ class SettingsFragment : Fragment() {
             row.addView(tvAmount)
             row.addView(ivDelete)
             binding.containerCommittedExpenses.addView(row)
-            
+
             val divider = View(requireContext()).apply {
                 layoutParams = LinearLayout.LayoutParams(
                     LinearLayout.LayoutParams.MATCH_PARENT,
@@ -221,6 +294,7 @@ class SettingsFragment : Fragment() {
                 }
                 setBackgroundColor(resources.getColor(R.color.border_color, null))
             }
+
             binding.containerCommittedExpenses.addView(divider)
         }
     }

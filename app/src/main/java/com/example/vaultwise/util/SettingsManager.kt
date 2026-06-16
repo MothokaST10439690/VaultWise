@@ -6,17 +6,25 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 
 class SettingsManager(private val context: Context) {
-    private val prefs: SharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+
+    private val prefs: SharedPreferences =
+        context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     companion object {
         private const val PREF_NAME = "VaultWiseSettings"
+
         private const val KEY_DARK_MODE = "dark_mode"
         private const val KEY_LANGUAGE = "language"
+
+        // Profile photos are saved per user, not shared between users
         private const val KEY_PROFILE_PHOTO_URI_PREFIX = "profile_photo_uri_user_"
     }
 
     fun setDarkMode(enabled: Boolean) {
-        prefs.edit().putBoolean(KEY_DARK_MODE, enabled).apply()
+        prefs.edit()
+            .putBoolean(KEY_DARK_MODE, enabled)
+            .apply()
+
         applyTheme(enabled)
     }
 
@@ -33,7 +41,10 @@ class SettingsManager(private val context: Context) {
     }
 
     fun setLanguage(langCode: String) {
-        prefs.edit().putString(KEY_LANGUAGE, langCode).apply()
+        prefs.edit()
+            .putString(KEY_LANGUAGE, langCode)
+            .apply()
+
         applyLanguage(langCode)
     }
 
@@ -46,11 +57,25 @@ class SettingsManager(private val context: Context) {
     }
 
     fun setProfilePhotoUri(userId: Int, uri: String) {
-        prefs.edit().putString(profilePhotoKey(userId), uri).apply()
+        if (userId <= 0) return
+
+        prefs.edit()
+            .putString(profilePhotoKey(userId), uri)
+            .apply()
     }
 
     fun getProfilePhotoUri(userId: Int): String? {
+        if (userId <= 0) return null
+
         return prefs.getString(profilePhotoKey(userId), null)
+    }
+
+    fun clearProfilePhotoUri(userId: Int) {
+        if (userId <= 0) return
+
+        prefs.edit()
+            .remove(profilePhotoKey(userId))
+            .apply()
     }
 
     private fun profilePhotoKey(userId: Int): String {
